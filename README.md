@@ -50,10 +50,10 @@ uv run playwright install chromium
 ```
 
 ## Docker
-cd docker
-docker compose config          # validate syntax and show the resolved configuration
-docker compose up -d           # start in detached mode
-docker compose ps              # show status, including health
-docker compose logs -f         # follow logs in real time
-docker compose down            # stop the services
-docker compose down -v         # stop the services and remove volumes
+- cd docker
+- docker compose config          # validate syntax and show the resolved - - - configuration
+- docker compose up -d           # start in detached mode
+- docker compose ps              # show status, including health
+- docker compose logs -f         # follow logs in real time
+- docker compose down            # stop the services
+- docker compose down -v         # stop the services and remove volumes
