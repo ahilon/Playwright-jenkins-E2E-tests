@@ -1,0 +1,30 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Pytest
+.pytest_cache/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Env / secrets
+.env
+.env.*
+
+# Coverage
+.coverage
+htmlcov/
+
+# Editor
+.vscode/
+.idea/
