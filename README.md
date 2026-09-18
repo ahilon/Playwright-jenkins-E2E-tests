@@ -49,6 +49,11 @@ uv sync
 uv run playwright install chromium
 ```
 
+## Playwright
+uv run playwright codegen http://localhost:8080  - generate code for test
+uv run pytest - run tests
+uv run python tests/test_smoke.py - run actual recored test
+
 ## Docker
 - cd docker
 - docker compose config          # validate syntax and show the resolved - - - configuration
