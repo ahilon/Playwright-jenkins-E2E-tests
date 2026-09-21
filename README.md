@@ -50,9 +50,23 @@ uv run playwright install chromium
 ```
 
 ## Playwright
-uv run playwright codegen http://localhost:8080  - generate code for test
-uv run pytest - run tests
+uv run python -m playwright codegen --lang en-US  http://localhost:8080  - generate code for test
+uv run python -m pytest - run tests
 uv run python tests/test_smoke.py - run actual recored test
+
+## test arguments
+
+# simple fast tests
+uv run python tests/smoke/test_smoke.py
+
+# slower, headed tests with slowmo set to 500
+uv run python tests/smoke/test_smoke.py --debug
+
+# tracing on 
+uv run python tests/smoke/test_smoke.py --tracing on
+
+# both
+uv run python tests/smoke/test_smoke.py --debug --tracing on
 
 ## Docker
 - cd docker

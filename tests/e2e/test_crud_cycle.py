@@ -1,12 +1,19 @@
 from playwright.sync_api import Playwright, sync_playwright, expect
 
+from playwright_jenkins_e2e.browser import launch_browser, start_tracing, stop_tracing
+
 
 def run(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    browser = launch_browser(playwright)
     context = browser.new_context(locale="en-US")
+    start_tracing(context)
     page = context.new_page()
     try:
-        page.goto("http://localhost:8080/")
+        page.goto("http://localhost:8080/login")
+        page.get_by_label("Username").fill("testuser")
+        page.get_by_label("Password").fill("testpass123")
+        page.get_by_role("button", name="Sign in").click()
+
         page.get_by_role("link", name="New Item").click()
         page.get_by_role("textbox", name="Enter an item name").fill("simple_freestyle")
         page.get_by_text("Freestyle projectClassic,").click()
@@ -25,6 +32,7 @@ def run(playwright: Playwright) -> None:
         page.get_by_role("link", name="simple_freestyle", exact=True).click()
         page.get_by_role("link", name="Delete Project", exact=True).click()
         page.get_by_role("button", name="Yes", exact=True).click()
+        stop_tracing(context, "test_crud_cycle")
         context.close()
         browser.close()
 
