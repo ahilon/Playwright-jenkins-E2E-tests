@@ -6,6 +6,8 @@ services:
       - "8080:8080"
     environment:
       JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+    volumes:
+      - ./init.groovy.d:/usr/share/jenkins/ref/init.groovy.d:ro
     healthcheck:
       test: ["CMD-SHELL", "curl -fsS http://localhost:8080/login || exit 1"]
       timeout: 10s
