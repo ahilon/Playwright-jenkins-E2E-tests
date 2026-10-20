@@ -7,7 +7,9 @@ authors = [
     { name = "Pawel", email = "ziela111@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "httpx>=0.28.1",
+]
 
 [project.scripts]
 playwright-jenkins-e2e = "playwright_jenkins_e2e:main"
@@ -28,4 +30,5 @@ testpaths = ["tests"]
 markers = [
     "smoke: fast page login page",
     "e2e: Full scenarios tests",
+    "rest: Jenkins REST API tests"
 ]
