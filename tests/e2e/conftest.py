@@ -4,11 +4,13 @@ from playwright.sync_api import Browser, expect, Page
 
 import playwright_jenkins_e2e.consts as Consts
 from playwright_jenkins_e2e.pages.login_page import LoginPage
+from playwright_jenkins_e2e.settings import Settings
 
 @pytest.fixture(scope="session")
 def authenticated_storage_state(
     browser: Browser,
     tmp_path_factory: pytest.TempPathFactory,
+    settings: Settings,
 ) -> str:
     """
     Fixture to create an authenticated storage state for the Jenkins application.
@@ -22,7 +24,10 @@ def authenticated_storage_state(
 
     try:
         page = context.new_page()
-        LoginPage(page).login()
+        LoginPage(page).login(
+            username=settings.username,
+            password=settings.password,
+        )
 
         expect(page.get_by_role("link", name="New Item")).to_be_visible()
 

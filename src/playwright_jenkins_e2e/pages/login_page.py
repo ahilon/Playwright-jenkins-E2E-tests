@@ -1,3 +1,5 @@
+import os
+
 from playwright.sync_api import Page
 import playwright_jenkins_e2e.consts as Consts
 
@@ -17,8 +19,8 @@ class LoginPage:
 
     def login(
             self,
-            username: str  = Consts.DEFAULT_USERNAME,
-            password: str = Consts.DEFAULT_PASSWORD,
+            username: str,
+            password: str,
             login_page: str = Consts.LOGIN_PAGE
             ) -> None:
         """login to the Jenkins application.
