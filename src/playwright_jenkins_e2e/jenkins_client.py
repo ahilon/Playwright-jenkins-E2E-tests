@@ -1,5 +1,6 @@
 import httpx
 from urllib.parse import quote
+import playwright_jenkins_e2e.consts as Consts
 
 
 class JenkinsClient:
@@ -7,7 +8,7 @@ class JenkinsClient:
         self._http = httpx.Client(
             base_url=base_url.rstrip("/"),
             auth=(username, api_token),
-            timeout=15.0,
+            timeout=Consts.JENKINS_TIMEOUT,
             follow_redirects=True
         )
 

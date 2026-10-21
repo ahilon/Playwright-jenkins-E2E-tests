@@ -13,8 +13,8 @@ FREESTYLE_XML = """<?xml version='1.1' encoding='UTF-8'?>
   </builders>
 </project>"""
 
-@pytest.mark.rest
-def test_create_job(jenkins_client: JenkinsClient) -> None:
+@pytest.mark.e2e
+def test_crud_cycle_rest(jenkins_client: JenkinsClient) -> None:
     job_name = f"rest_job_{uuid.uuid4().hex[:8]}"
     jenkins_client.create_job(job_name, FREESTYLE_XML)
     try:

@@ -1,5 +1,3 @@
-import os
-
 from playwright.sync_api import Page
 import playwright_jenkins_e2e.consts as Consts
 
@@ -7,15 +5,6 @@ import playwright_jenkins_e2e.consts as Consts
 class LoginPage:
     def __init__(self, page: Page) -> None:
         self.page = page
-
-    def _go_to_localhost(self, url: str) -> None:
-        """
-        Go to the specified URL.
-        args:
-            url: The URL to navigate to.
-        returns: None
-        """
-        self.page.goto(url)
 
     def login(
             self,
@@ -29,7 +18,7 @@ class LoginPage:
             password: The password to use for login. Default is Consts.DEFAULT_PASSWORD.
             login_page: The URL of the login page. Default is Consts.LOGIN_PAGE.
         returns: None"""
-        self._go_to_localhost(login_page)
+        self.page.goto(login_page)
         self.page.get_by_label("Username").fill(username)
         self.page.get_by_label("Password").fill(password)
         self.page.get_by_role("button", name="Sign in").click()
