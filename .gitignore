@@ -21,6 +21,7 @@ trace/
 # Env / secrets
 .env
 .env.*
+!.env.example
 
 # Coverage
 .coverage

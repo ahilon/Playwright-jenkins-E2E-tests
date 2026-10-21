@@ -6,7 +6,7 @@ from playwright_jenkins_e2e.pages.job_page import JobPage
 
 
 @pytest.mark.e2e
-def test_crud_cycle(jenkins_page: Page) -> None:
+def test_crud_cycle_ui(jenkins_page: Page) -> None:
     """
     Run the CRUD cycle test.
     args:
@@ -30,3 +30,4 @@ def test_crud_cycle(jenkins_page: Page) -> None:
     finally:
         if created:
             job_page.delete_project(job_name)
+

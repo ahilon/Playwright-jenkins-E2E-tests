@@ -9,6 +9,7 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "httpx>=0.28.1",
+    "python-dotenv>=1.2.4",
 ]
 
 [project.scripts]
@@ -29,6 +30,5 @@ dev = [
 testpaths = ["tests"]
 markers = [
     "smoke: fast page login page",
-    "e2e: Full scenarios tests",
-    "rest: Jenkins REST API tests"
+    "e2e: Full scenarios tests"
 ]
