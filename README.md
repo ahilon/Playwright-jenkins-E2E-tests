@@ -146,7 +146,11 @@ Playwright's Chromium browser and its system dependencies.
 
 ## Changelog
 
-### 1.3 — CI automation (in progress)
+### 1.4 - Configuration of Ruff
+- add first common ruff rules
+- reformat files accoring to ruff rules
+
+### 1.3 — CI automation
 
 - Set up a GitHub Actions workflow.
 - Planned: run Jenkins in a service container with a readiness check.

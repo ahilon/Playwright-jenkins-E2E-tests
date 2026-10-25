@@ -1,5 +1,4 @@
 import pytest
-
 from playwright.sync_api import Page, expect
 
 from playwright_jenkins_e2e.pages.job_page import JobPage
@@ -30,4 +29,3 @@ def test_crud_cycle_ui(jenkins_page: Page) -> None:
     finally:
         if created:
             job_page.delete_project(job_name)
-

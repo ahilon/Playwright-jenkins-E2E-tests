@@ -1,20 +1,20 @@
-import pytest
+from collections.abc import Iterator
 
-from playwright.sync_api import Browser, expect, Page
+import pytest
+from playwright.sync_api import Browser, Page, expect
 
 import playwright_jenkins_e2e.consts as Consts
-from playwright_jenkins_e2e.pages.login_page import LoginPage
 from playwright_jenkins_e2e.jenkins_client import JenkinsClient
+from playwright_jenkins_e2e.pages.login_page import LoginPage
 from playwright_jenkins_e2e.settings import Settings
 
-from collections.abc import Iterator
 
 @pytest.fixture(scope="session")
 def authenticated_storage_state(
     browser: Browser,
     tmp_path_factory: pytest.TempPathFactory,
     settings: Settings,
-    base_url: str
+    base_url: str,
 ) -> str:
     """
     Fixture to create an authenticated storage state for the Jenkins application.
@@ -43,20 +43,23 @@ def authenticated_storage_state(
 
     return str(state_path)
 
+
 @pytest.fixture(scope="session")
 def browser_context_args(
-    browser_context_args: dict,
-    authenticated_storage_state: str
-    ) -> dict:
-    return {**browser_context_args,
-            "storage_state": authenticated_storage_state,
-             "locale": "en-US"
+    browser_context_args: dict, authenticated_storage_state: str
+) -> dict:
+    return {
+        **browser_context_args,
+        "storage_state": authenticated_storage_state,
+        "locale": "en-US",
     }
+
 
 @pytest.fixture
 def jenkins_page(page: Page) -> Page:
     page.goto("/")
     return page
+
 
 @pytest.fixture(scope="session")
 def jenkins_client(settings: Settings) -> Iterator[JenkinsClient]:

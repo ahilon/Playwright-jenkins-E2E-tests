@@ -1,5 +1,7 @@
-import httpx
 from urllib.parse import quote
+
+import httpx
+
 import playwright_jenkins_e2e.consts as Consts
 
 
@@ -9,7 +11,7 @@ class JenkinsClient:
             base_url=base_url.rstrip("/"),
             auth=(username, api_token),
             timeout=Consts.JENKINS_TIMEOUT,
-            follow_redirects=True
+            follow_redirects=True,
         )
 
     def create_job(self, name: str, config_xml: str) -> None:
