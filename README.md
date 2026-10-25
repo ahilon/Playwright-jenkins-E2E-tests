@@ -2,6 +2,9 @@
 
 End-to-end tests for Jenkins using Playwright, pytest, and a REST API client.
 
+For development commands, review requirements, and versioning rules, see the
+[developer guide](CONTRIBUTING.md).
+
 ## Table of contents
 
 - [Project objective](#project-objective)
@@ -145,6 +148,18 @@ wait for readiness, and run tests against it on a Linux runner. CI also needs
 Playwright's Chromium browser and its system dependencies.
 
 ## Changelog
+
+### 2.1.0 - lint workflow
+
+- Add actual workflow to run ruff linter
+
+### 2.0.0 — Public beta
+
+- Make the repository public and configure protection rules for `main`.
+- Require Ruff checks, an up-to-date branch, and at least one approval before merging.
+- Allow squash merges only and define code ownership in CODEOWNERS.
+- Add a developer guide with contribution and versioning rule
+- Keep E2E tests optional for merging; trigger them with the `e2e_tests` PR label.
 
 ### 1.4 - Configuration of Ruff
 - add first common ruff rules

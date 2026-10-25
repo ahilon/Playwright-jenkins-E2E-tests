@@ -325,7 +325,7 @@ wheels = [
 
 [[package]]
 name = "playwright-jenkins-e2e"
-version = "1.4.0"
+version = "2.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "httpx" },
