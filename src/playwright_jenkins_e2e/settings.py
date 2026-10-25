@@ -5,12 +5,13 @@ from dotenv import load_dotenv
 
 import playwright_jenkins_e2e.consts as Consts
 
+
 @dataclass(frozen=True)
 class Settings:
     username: str
     password: str
     url: str
-    token: str | None = None 
+    token: str | None = None
 
     @classmethod
     def from_env(cls) -> "Settings":

@@ -1,5 +1,7 @@
 from playwright.sync_api import Page
+
 import playwright_jenkins_e2e.consts as Consts
+
 
 class JobPage:
     def __init__(self, page: Page) -> None:
@@ -27,7 +29,9 @@ class JobPage:
         """
         self.page.get_by_role("button", name="Add build step").click()
         self.page.get_by_role("button", name="Execute shell").click()
-        self.page.locator("section").filter(has_text="Build Steps Automate your").get_by_role("textbox").fill(f'echo \"{command}\"')
+        self.page.locator("section").filter(
+            has_text="Build Steps Automate your"
+        ).get_by_role("textbox").fill(f'echo "{command}"')
         self.page.get_by_role("button", name="Save").click()
 
     def trigger_build(self, freestyle_name: str) -> None:
@@ -41,7 +45,7 @@ class JobPage:
         self.page.locator("#jenkins-build-history").get_by_role("link").first.wait_for()
         self.page.goto(f"{Consts.JOB_PAGE}/{freestyle_name}/lastBuild/console")
 
-    def delete_project(self, project_name: str)-> None:
+    def delete_project(self, project_name: str) -> None:
         """
         Delete the specified project.
         args:

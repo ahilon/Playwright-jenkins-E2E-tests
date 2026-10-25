@@ -1,7 +1,7 @@
-import pytest
 import uuid
 
 import httpx
+import pytest
 
 from playwright_jenkins_e2e.jenkins_client import JenkinsClient
 
@@ -12,6 +12,7 @@ FREESTYLE_XML = """<?xml version='1.1' encoding='UTF-8'?>
     <hudson.tasks.Shell><command>echo "Build Created"</command></hudson.tasks.Shell>
   </builders>
 </project>"""
+
 
 @pytest.mark.e2e
 def test_crud_cycle_rest(jenkins_client: JenkinsClient) -> None:

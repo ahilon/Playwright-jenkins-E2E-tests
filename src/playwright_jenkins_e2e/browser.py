@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-from playwright.sync_api import Playwright, Browser, BrowserContext
+from playwright.sync_api import Browser, BrowserContext, Playwright
 
 
 def _flag_value(flag: str) -> str | None:
@@ -19,7 +19,9 @@ TRACE_DIR = Path("trace")
 
 
 def launch_browser(playwright: Playwright, **kwargs) -> Browser:
-    return playwright.chromium.launch(headless=False, slow_mo=500 if DEBUG else 0, **kwargs)
+    return playwright.chromium.launch(
+        headless=False, slow_mo=500 if DEBUG else 0, **kwargs
+    )
 
 
 def start_tracing(context: BrowserContext) -> None:
