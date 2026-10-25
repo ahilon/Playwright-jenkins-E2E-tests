@@ -1,0 +1,5 @@
+# Default owner for all files
+* @ahilon
+
+# Owners of tests and all nested directories
+/tests/ @ahilon @pz-aiagent
