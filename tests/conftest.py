@@ -1,6 +1,6 @@
+from playwright_jenkins_e2e.settings import Settings
 import pytest
 
-from playwright_jenkins_e2e.settings import Settings
 
 
 @pytest.fixture(scope="session")
