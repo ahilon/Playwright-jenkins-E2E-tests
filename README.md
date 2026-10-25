@@ -165,3 +165,5 @@ Playwright's Chromium browser and its system dependencies.
 ### 1.0 — Initial Playwright tests
 
 - Add initial sanity tests using Playwright.
+
+pr created only for verification of workflow
