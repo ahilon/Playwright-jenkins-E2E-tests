@@ -149,6 +149,10 @@ Playwright's Chromium browser and its system dependencies.
 
 ## Changelog
 
+### 2.1.0 - linter workflow
+
+- Create github actions workflow to trigger linter check
+
 ### 2.0.0 — Public beta
 
 - Make the repository public and configure protection rules for `main`.
